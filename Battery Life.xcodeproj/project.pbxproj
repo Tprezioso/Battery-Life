@@ -21,6 +21,7 @@
 		9F5B90A62224663100D12845 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B90A52224663100D12845 /* NotificationController.swift */; };
 		9F5B90A82224663100D12845 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B90A72224663100D12845 /* ComplicationController.swift */; };
 		9F5B90AA2224663200D12845 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F5B90A92224663200D12845 /* Assets.xcassets */; };
+		9F5B90BF2225F25100D12845 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F5B90BE2225F25100D12845 /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		9F5B90A92224663200D12845 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F5B90AB2224663200D12845 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F5B90AC2224663200D12845 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		9F5B90BE2225F25100D12845 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F5B90BF2225F25100D12845 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +115,7 @@
 				9F5B90912224663000D12845 /* Battery Life WatchKit App */,
 				9F5B90A02224663100D12845 /* Battery Life WatchKit Extension */,
 				9F5B907C2224662F00D12845 /* Products */,
+				9F5B90BD2225F25100D12845 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -184,6 +188,14 @@
 				9F5B90A72224663100D12845 /* ComplicationController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		9F5B90BD2225F25100D12845 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9F5B90BE2225F25100D12845 /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
