@@ -10,8 +10,27 @@ import UIKit
 import CoreBluetooth
 
 class BluetoothDeviceListTableViewController: UITableViewController, CBCentralManagerDelegate {
-    
     var manager: CBCentralManager!
+    var peripheralsArray: Array = [CBPeripheral]()
+
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        switch central.state {
+        case .unknown:
+            print("central.state is .unknown")
+        case .resetting:
+            print("central.state is .resetting")
+        case .unsupported:
+            print("central.state is .unsupported")
+        case .unauthorized:
+            print("central.state is .unauthorized")
+        case .poweredOff:
+            print("central.state is .poweredOff")
+        case .poweredOn:
+            print("central.state is .poweredOn")
+            manager.scanForPeripherals(withServices: nil)
+        }
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,33 +43,30 @@ class BluetoothDeviceListTableViewController: UITableViewController, CBCentralMa
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
-    func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        <#function body#>
-    }
 
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        print(peripheral)
+    }
+}
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+    return 1
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "deviceCell", for: indexPath)
 
         // Configure the cell...
+//    let peripheral = peripheralsArray[indexPath.row]
+//        cell.textLabel?.text = peripheral.name
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -97,4 +113,4 @@ class BluetoothDeviceListTableViewController: UITableViewController, CBCentralMa
     }
     */
 
-}
+
