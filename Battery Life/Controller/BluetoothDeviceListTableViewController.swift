@@ -11,7 +11,7 @@ import CoreBluetooth
 
 class BluetoothDeviceListTableViewController: UITableViewController, CBCentralManagerDelegate {
     var manager: CBCentralManager!
-    var peripheralsArray: Array = [CBPeripheral]()
+    var peripheralsArray = Array<CBPeripheral>()
 
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
@@ -36,6 +36,8 @@ class BluetoothDeviceListTableViewController: UITableViewController, CBCentralMa
         super.viewDidLoad()
 
         manager = CBCentralManager(delegate: self, queue: nil)
+        manager.scanForPeripherals(withServices: nil)
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
