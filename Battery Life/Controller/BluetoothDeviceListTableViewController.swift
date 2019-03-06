@@ -38,7 +38,6 @@ class BluetoothDeviceListTableViewController: UITableViewController, CBCentralMa
         manager = CBCentralManager(delegate: self, queue: nil)
         manager.scanForPeripherals(withServices: nil)
 
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -47,7 +46,9 @@ class BluetoothDeviceListTableViewController: UITableViewController, CBCentralMa
     }
 
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        print(peripheral)
+        peripheralsArray.append(peripheral)
+        print(peripheralsArray)
+        //print(peripheral)
     }
 }
 
