@@ -37,6 +37,8 @@ class BluetoothDeviceListTableViewController: UITableViewController, CBCentralMa
 
         manager = CBCentralManager(delegate: self, queue: nil)
         manager.scanForPeripherals(withServices: nil)
+        let connectedPeripherals = self.manager.retrieveConnectedPeripherals(withServices: [CBUUID(string: "0x180A")])
+        print(connectedPeripherals)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -44,10 +46,11 @@ class BluetoothDeviceListTableViewController: UITableViewController, CBCentralMa
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
 
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         peripheralsArray.append(peripheral)
-        print(peripheralsArray)
+        //print(peripheralsArray)
         //print(peripheral)
     }
 }
