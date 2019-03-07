@@ -7,73 +7,44 @@
 //
 
 import UIKit
-import CoreBluetooth
 
-class BluetoothDeviceListTableViewController: UITableViewController, CBCentralManagerDelegate {
-    var manager: CBCentralManager!
-    var peripheralsArray = Array<CBPeripheral>()
+class BluetoothDeviceListTableViewController: UITableViewController  {
 
-    func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        switch central.state {
-        case .unknown:
-            print("central.state is .unknown")
-        case .resetting:
-            print("central.state is .resetting")
-        case .unsupported:
-            print("central.state is .unsupported")
-        case .unauthorized:
-            print("central.state is .unauthorized")
-        case .poweredOff:
-            print("central.state is .poweredOff")
-        case .poweredOn:
-            print("central.state is .poweredOn")
-            manager.scanForPeripherals(withServices: nil)
-        }
+    var batteryLevel: Float {
+        return UIDevice.current.batteryLevel
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        manager = CBCentralManager(delegate: self, queue: nil)
-        manager.scanForPeripherals(withServices: nil)
-        let connectedPeripherals = self.manager.retrieveConnectedPeripherals(withServices: [CBUUID(string: "0x180A")])
-        print(connectedPeripherals)
-
+        UIDevice.current.isBatteryMonitoringEnabled = true
+        NotificationCenter.default.addObserver(self, selector: #selector(batteryLevelDidChange), name: UIDevice.batteryLevelDidChangeNotification, object: nil)
+        print(batteryLevel)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
 
-    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        peripheralsArray.append(peripheral)
-        //print(peripheralsArray)
-        //print(peripheral)
+    @objc func batteryLevelDidChange(_ notification: Notification) {
+        print(batteryLevel)
     }
-}
 
     // MARK: - Table view data source
 
-func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
     return 1
     }
 
-
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "deviceCell", for: indexPath)
 
         // Configure the cell...
-//    let peripheral = peripheralsArray[indexPath.row]
-//        cell.textLabel?.text = peripheral.name
 
         return cell
     }
  
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -119,4 +90,4 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     }
     */
 
-
+}
