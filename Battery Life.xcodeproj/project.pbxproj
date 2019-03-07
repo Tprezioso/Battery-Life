@@ -21,7 +21,7 @@
 		9F5B90A82224663100D12845 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B90A72224663100D12845 /* ComplicationController.swift */; };
 		9F5B90AA2224663200D12845 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F5B90A92224663200D12845 /* Assets.xcassets */; };
 		9F5B90BF2225F25100D12845 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F5B90BE2225F25100D12845 /* CoreBluetooth.framework */; };
-		9F5B90C12227502500D12845 /* BluetoothDeviceListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5B90C02227502500D12845 /* BluetoothDeviceListTableViewController.swift */; };
+		9FB30B032231DD90007A530C /* BatteryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB30B022231DD90007A530C /* BatteryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +86,7 @@
 		9F5B90AB2224663200D12845 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F5B90AC2224663200D12845 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		9F5B90BE2225F25100D12845 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		9F5B90C02227502500D12845 /* BluetoothDeviceListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDeviceListTableViewController.swift; sourceTree = "<group>"; };
+		9FB30B022231DD90007A530C /* BatteryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +166,7 @@
 		9F5B90BA222497D300D12845 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9F5B90C02227502500D12845 /* BluetoothDeviceListTableViewController.swift */,
+				9FB30B022231DD90007A530C /* BatteryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -330,7 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F5B90C12227502500D12845 /* BluetoothDeviceListTableViewController.swift in Sources */,
+				9FB30B032231DD90007A530C /* BatteryViewController.swift in Sources */,
 				9F5B907F2224662F00D12845 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
